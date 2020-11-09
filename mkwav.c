@@ -4,10 +4,6 @@
 
 // 	Evans Winner
 
-// Todo, maybe: Input validating and maybe some flexibility as to
-// output file type, though I now know that sox will probably do what
-// this does and better, so why bother?
-
 //       2006.1.27: add use message and some comments.
 //                  Compiled on Fedora Core 3 linux machine
 //                  at home.
@@ -27,14 +23,12 @@ int main(int argc, char **argv) {
 
   //  Make sure there are two input args.  If not, print use message.
   if (argc != 3) {
-    printf("\n          `mkwav' v. 0.0.2\n");
+    printf("\n          `mkwav' v. 0.1.2\n");
     printf("\n Copies any arbitrary file to a new file with an\n");
     printf(" RIFF, 16 bit, mono, 44,100 khz .wav file header.\n");
     printf("\n           Use: mkwav infile outfile\n");
-    printf("\n No error-checking.  Will overwrite output file\n");
-    printf(" if it already exists.  Will seg fault if input\n");
-    printf(" file does not exist.\n");
-    printf("\n Use at own risk.             thorne@timbral.net\n");
+    printf("\n No error-checking.  Will overwrite output file.\n");
+    printf("\n Use at own risk.             evans.winner@gmail.com\n");
     return 0;
   }
 
