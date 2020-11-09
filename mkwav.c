@@ -4,15 +4,18 @@
 
 // 	Evans Winner
 
-// To Do, maybe: Input validating and maybe some flexibility as to
+// Todo, maybe: Input validating and maybe some flexibility as to
 // output file type, though I now know that sox will probably do what
 // this does and better, so why bother?
 
-//       2006.1.27: added use message and some comments.
+//       2006.1.27: add use message and some comments.
 //                  Compiled on Fedora Core 3 linux machine
 //                  at home.
+//       2020.11.09: Compile on Ubuntu and change docs. 
 
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
   FILE *in, *out;
@@ -33,6 +36,12 @@ int main(int argc, char **argv) {
     printf(" file does not exist.\n");
     printf("\n Use at own risk.             thorne@timbral.net\n");
     return 0;
+  }
+
+  // Make sure input file exists
+  if (access(argv[1], R_OK) == -1) {
+    printf("Input file does not exist\n");
+    exit(1);
   }
 
   in = fopen(argv[1], "r");
